@@ -1,0 +1,5 @@
+- hosts: docker_cloudwatch
+  name: Run grafana
+  tasks:
+    - name: Run application
+      shell: docker run -d --log-driver=awslogs --log-opt awslogs-region=ap-south-1 --log-opt awslogs-group=docker-cloudwatch --name grafana --restart=always grafana/grafana:latest

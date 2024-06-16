@@ -1,0 +1,15 @@
+- hosts: docker_cloudwatch
+  name: Install Docker
+  become: true
+  tasks:
+  - name: Install Docker
+    yum:
+      name: docker
+      state: present
+  - name: Enable Docker
+    service:
+      name: docker
+      state: started
+      enabled: true
+  - name: Allow ec2-user to run docker without sudo permission
+    shell: usermod -aG docker ec2-user

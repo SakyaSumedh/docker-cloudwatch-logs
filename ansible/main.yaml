@@ -1,0 +1,4 @@
+- name: Setup environment
+  import_playbook: playbooks/setup.yaml
+- name: Run application
+  import_playbook: playbooks/app.yaml
